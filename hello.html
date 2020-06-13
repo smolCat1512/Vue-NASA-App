@@ -21,6 +21,13 @@
     .shooting-star-enter-active, .shooting-star-leave-active {
         transition: all .5s ease;
     }
+    .neo-list-leave-to, .neo-list-enter {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    .neo-list-enter-active, .neo-list-leave-active {
+      transition: all 1s linear;
+    }
 </style>
 
 <div id="app">
@@ -47,7 +54,7 @@
           <th>Miss Distance</th>
           <th>Remove</th>
         </thead>
-        <tbody v-cloak>
+          <tbody is="transition-group" name="neo-list" v-cloak>
           <tr
             v-for="(a, index) in asteroids"
             :key="a.neo_reference_id"
@@ -71,7 +78,7 @@
               </button>
             </td>
           </tr>
-        </tbody>
+        </transition-group>
       </table>
     </div>
   </div>
