@@ -1,6 +1,6 @@
 // requires Vue.js and Bootstrap
-Vue.component('asteroid-grid', {
-    props: ['asteroids', 'header'],        
+Vue.component('asteroid-grid', {    
+    props: ['asteroids', 'header'],
     data: function() {
         return {            
             showSummary: true
@@ -31,7 +31,7 @@ Vue.component('asteroid-grid', {
             return 'N/A';
         },
         remove: function (index) {
-            this.asteroids = [];
+            this.asteroids.splice(index, 1);
         },
         getRowStyle: function (a) {
             if (a.close_approach_data.length == 0) {
